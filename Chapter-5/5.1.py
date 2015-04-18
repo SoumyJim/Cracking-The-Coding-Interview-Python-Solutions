@@ -1,5 +1,9 @@
 __author__ = 'Jim'
 
+#You are given two 32-bit numbers, N and M, and two bit positions, i and j.
+#Write a method to set all bits between i and j in N equal to M (e.g., M becomes
+#a substring of N located at i and starting at j).
+
 def complement(n):
     size = len(format(n, 'b'))
     comp = n ^ ((1 << size) - 1)
