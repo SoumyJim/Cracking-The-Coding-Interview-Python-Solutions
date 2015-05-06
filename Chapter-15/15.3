@@ -1,0 +1,91 @@
+__author__ = 'Jithu Jim'
+
+Normalization - to reduce redundancy.
+1N - No repeating columns
+
+eg) personid    personname  child1  child2  child3
+    1           jim         Naomi   Ron     Ark
+    2           sam         samy    sum     sue
+
+    Solution)
+             persontable
+             personid   personname
+             1          jim
+             2          sam
+
+             childtable:
+             personid   child
+            1           Naomi
+            1           Ron
+            1           Ark
+            2           samy
+            2           sum
+            2           sue
+
+2N - all non-key attributes should depend on full primary key
+two primary keys- composite primary keys- personid and projectid
+eg) personid    projectid       personname      projectcode     projectname     personphone
+    1           1               john            proj1           databaseproj    345
+    2           1               sam             proj1           databaseproj    567
+    3           1               jim             proj1           databaseproj    789
+    1           2               john            proj2           csproj          345
+    2           2               sam             proj2           csproj          567
+    3           2               jim             proj2           csproj          789
+Solution)
+    Table1- persontable
+    personid    personname      personphone
+    1           john            345
+    2           sam             567
+    3           jim             789
+
+    Table2- projecttable
+    projectid       projectcode     projectname
+    1               proj1           databaseproj
+    2               proj2           csproj
+
+    Table3- Maintable
+    personid        projectid
+    1               1
+    2               1
+    3               1
+    1               2
+    2               2
+    3               2
+
+
+3N - all non-key/attributes should non transitively / directly  depened on primary key
+eg) empname     city        country
+
+    sam         chicago     USA
+    jim         newyork     USA
+    jithu       chennai     India
+
+    solution)
+    empname     city
+    sam         chicago
+    jim         newyork
+    lam         newyork
+    jithu       chennai
+
+    city        country
+    newyork     USA
+    chicago     USA
+    chennai     India
+
+    Denormalization is the process of attempting to optimize the performance of a database by
+    adding redundant data or by grouping data. In some cases, denormalization helps cover up the
+    inefficiencies inherent in relational database software. A relational normalized database imposes
+     a heavy access load over physical storage of data even if it is well tuned for high performance.
+A normalized design will often store different but related pieces of information in separate logical
+tables (called relations). If these relations are stored physically as separate disk files, completing
+ a database query that draws information from several relations (a join operation) can be slow. If many
+ relations are joined, it may be prohibitively slow. There are two strategies for dealing with this.
+ The preferred method is to keep the logical design normalized, but allow the database management system
+  (DBMS) to store additional redundant information on disk to optimize query response. In this case, it
+  is the DBMS software’s responsibility to ensure that any redundant copies are kept consistent. This
+   method is often implemented in SQL as indexed views (Microsoft SQL Server) or materialized views (Oracle).
+A view represents information in a format convenient for querying, and the index ensures that queries against
+the view are optimized.
+
+
+

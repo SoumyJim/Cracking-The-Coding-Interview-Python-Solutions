@@ -1,0 +1,31 @@
+__author__ = 'Jithu Jim'
+
+1)select * from reg_beer inner join cal_free_beer
+on reg_beer.Code = cal_free_beer.Code;
+
+Ans)
+Name        Code        Name            Code
+Coca-Cola   COCACOLA    Diet Coca-Cola  COCACOLA
+pepsi       PEPSI       Diet Pepsi      PEPSI
+pepsi       PEPSI       Pepsi Light     PEPSI
+
+
+2)select * from reg_beer left join cal_free_beer on
+reg_beer.Code = cal_free_beer.Code;
+
+Ans)
+Name        Code        Name            Code
+Budweiser   BUDWEISER   NULL            NULL
+Coca-Cola   COCACOLA    Diet Coca-Cola  COCACOLA
+pepsi       PEPSI       Diet Pepsi      PEPSI
+pepsi       PEPSI       Pepsi Light     PEPSI
+
+3)select * from reg_beer right join cal_free_beer on reg_beer.Code = cal_free_beer.Code;
+Ans)
+Name        Code        Name            Code
+Coca-Cola   COCACOLA    Diet Coca-Cola  COCACOLA
+Null        Null        Fresca          FRESCA
+pepsi       PEPSI       pepsi           PEPSI
+Null        Null        Purified Water  Water
+
+

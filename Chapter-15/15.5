@@ -1,0 +1,14 @@
+__author__ = 'Jithu Jim'
+
+3 tables are Student, Courses, CourseEnrollment
+
+SELECT StudentName, GPA
+FROM (
+SELECT top 10 percent Avg(CourseEnrollment.Grade) AS GPA,
+CourseEnrollment.StudentID
+FROM CourseEnrollment
+GROUP BY CourseEnrollment.StudentID
+ORDER BY Avg(CourseEnrollment.Grade)) Honors
+INNER JOIN Students ON Honors.StudentID = Students.StudentID
+
+

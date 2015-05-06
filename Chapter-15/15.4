@@ -1,0 +1,14 @@
+__author__ = 'Jithu Jim'
+
+Entity relationship diagram of people with companies,people,professionals
+
+People who work for companies are Professionals. So there is an ISA (is a)
+relationship between People and Professionals (or we could say that a Professional
+is derived from People).Each Professional has additional information such as degree,
+work experiences, etc, in addition to the properties derived from People.A Professional
+works for one company at a time, but Companies can hire many Professionals, so there is
+a Many to One relationship between Professionals and Companies. This “Works For” relationship
+can store attributes such as date of joining the company, salary, etc. These attributes are
+only defined when we relate a Professional with a Company.
+A Person can have multiple phone numbers, which is why Phone is a multi-valued attribute.
+
